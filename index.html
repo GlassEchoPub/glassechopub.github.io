@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151019">
+  <meta name="description"
+        content="Glass Echo Publishing. Discover BLACKWOOD by B. Tomago and stories that linger beyond the final page.">
+
+  <title>Glass Echo Publishing | Stories That Echo</title>
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #151019;
+      --panel: #211925;
+      --text: #f3ede5;
+      --muted: #c2b6c5;
+      --gold: #dec091;
+      --border: #49394b;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    a:focus-visible {
+      outline: 3px solid var(--gold);
+      outline-offset: 6px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 10px 18px;
+      background: var(--gold);
+      color: var(--background);
+      z-index: 10;
+    }
+
+    .skip-link:focus { top: 12px; }
+
+    .container {
+      width: min(1100px, 88%);
+      margin-inline: auto;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 24px 0;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      color: var(--gold);
+      font-size: 20px;
+      letter-spacing: -2px;
+      padding-right: 2px;
+    }
+
+    .brand-name {
+      display: block;
+      font-size: 22px;
+      letter-spacing: 2px;
+      line-height: 1.2;
+    }
+
+    .brand-subtitle {
+      display: block;
+      margin-top: 5px;
+      font-family: Arial, sans-serif;
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      color: var(--gold);
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+    }
+
+    nav a:hover { color: var(--gold); }
+
+    .hero {
+      padding: 105px 0 95px;
+      background:
+        radial-gradient(ellipse at 80% 20%,
+          #49304b55, transparent 60%);
+    }
+
+    .eyebrow {
+      margin: 0 0 20px;
+      color: var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { overflow-wrap: break-word; }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(46px, 7vw, 86px);
+      font-weight: normal;
+      letter-spacing: -2px;
+      line-height: 1.08;
+    }
+
+    h1 em {
+      color: var(--gold);
+      font-weight: normal;
+    }
+
+    .hero-description {
+      max-width: 540px;
+      margin: 28px 0 32px;
+      font-size: 19px;
+      color: var(--muted);
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 14px 24px;
+      background: var(--gold);
+      color: #211722;
+      border: 1px solid var(--gold);
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+
+    .button:hover {
+      background: #f0d7b2;
+      color: #151019;
+    }
+
+    .featured {
+      padding: 75px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .book-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .book-art {
+      width: 100%;
+      max-width: 340px;
+      aspect-ratio: 2 / 3;
+      margin: 0 auto;
+      padding: 24px;
+      background:
+        radial-gradient(ellipse at 50% 35%,
+          #604263 0%, #302333 40%, #171219 80%);
+      border: 1px solid #78617a;
+      box-shadow: 15px 22px 45px #0006;
+    }
+
+    .book-art-inner {
+      height: 100%;
+      border: 1px solid #c4a77788;
+      padding: 28px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+    }
+
+    .book-symbol {
+      color: var(--gold);
+      font-size: 54px;
+      line-height: 1;
+    }
+
+    .book-title {
+      font-size: clamp(25px, 4vw, 35px);
+      letter-spacing: 3px;
+    }
+
+    .book-author {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+
+    .book-copy h2 {
+      margin: 0 0 12px;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: normal;
+      letter-spacing: 2px;
+      line-height: 1.15;
+    }
+
+    .byline {
+      color: var(--gold);
+      margin: 0 0 24px;
+      font-style: italic;
+      font-size: 19px;
+    }
+
+    .book-description {
+      max-width: 480px;
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 24px;
+    }
+
+    .formats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 0 0 30px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .formats li {
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .about {
+      padding: 90px 0;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 70px;
+    }
+
+    .about h2 {
+      margin: 0;
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    .about p:not(.eyebrow) {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .closing {
+      padding: 50px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      background: var(--panel);
+    }
+
+    .closing p {
+      margin: 0;
+      color: var(--gold);
+      font-style: italic;
+      font-size: clamp(22px, 4vw, 32px);
+    }
+
+    footer {
+      padding: 26px 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    footer p { margin: 0; }
+
+    @media (max-width: 700px) {
+      .hero { padding: 70px 0; }
+
+      .book-grid, .about {
+        grid-template-columns: 1fr;
+        gap: 42px;
+      }
+
+      .featured { padding: 55px 0; }
+      .about { padding: 60px 0; }
+      .book-art { max-width: 280px; }
+      nav { gap: 22px; }
+      h1 { letter-spacing: -1px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header>
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Glass Echo Publishing home">
+        <span class="brand-mark" aria-hidden="true">GE</span>
+        <span>
+          <span class="brand-name">GLASS ECHO</span>
+          <span class="brand-subtitle">Publishing</span>
+        </span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <a href="#books">Our books</a>
+        <a href="#about">Our story</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="eyebrow">Glass Echo Publishing</p>
+
+        <h1 id="hero-title">
+          Some stories end.<br>
+          Others <em>echo.</em>
+        </h1>
+
+        <p class="hero-description">
+          For the stories that follow you beyond the final page.
+          Step into the world of Glass Echo Publishing.
+        </p>
+
+        <a class="button" href="#books">
+          Discover BLACKWOOD <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="featured" id="books" aria-labelledby="book-heading">
+      <div class="container book-grid">
+
+        <!-- Decorative title panel.
+             To use your actual cover, replace this entire
+             book-art div with:
+             <img src="blackwood-cover.jpg"
+                  alt="BLACKWOOD by B. Tomago book cover"
+                  style="width:100%;max-width:340px;height:auto;
+                         display:block;margin:auto;">
+             Upload blackwood-cover.jpg beside index.html.
+        -->
+        <div class="book-art" aria-hidden="true">
+          <div class="book-art-inner">
+            <span class="book-author">Glass Echo Publishing</span>
+            <span class="book-symbol">☾</span>
+            <span class="book-title">BLACKWOOD</span>
+            <span class="book-author">B. Tomago</span>
+          </div>
+        </div>
+
+        <div class="book-copy">
+          <p class="eyebrow">The featured book</p>
+          <h2 id="book-heading">BLACKWOOD</h2>
+          <p class="byline">By B. Tomago</p>
+
+          <!-- Replace this short introduction with your
+               official back-cover description whenever ready. -->
+          <p class="book-description">
+            Enter the world of BLACKWOOD.
+            Discover B. Tomago’s novel and find your next read.
+          </p>
+
+          <ul class="formats" aria-label="Book formats">
+            <li>Kindle eBook</li>
+            <li>Paperback</li>
+            <li>Hardcover</li>
+          </ul>
+
+          <!-- Replace this Amazon search URL with your
+               book's direct Amazon product link. Then change
+               "Find on Amazon" to "Buy on Amazon". -->
+          <a class="button"
+             href="https://www.amazon.com/s?k=Blackwood+B+Tomago"
+             target="_blank"
+             rel="noopener noreferrer">
+            Find on Amazon <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container about" id="about"
+             aria-labelledby="about-heading">
+      <div>
+        <p class="eyebrow">Our story</p>
+        <h2 id="about-heading">
+          A home for words<br>that stay with you.
+        </h2>
+      </div>
+
+      <div>
+        <p>
+          Glass Echo Publishing celebrates the pull of a good story:
+          the curiosity that keeps you turning pages, the characters
+          you carry with you, and the feeling that lingers afterward.
+        </p>
+        <p>
+          Begin with BLACKWOOD by B. Tomago.
+          Return for the stories still to come.
+        </p>
+      </div>
+    </section>
+
+    <div class="closing">
+      <p>The final page is only the beginning of the echo.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <p>© <span id="year">2026</span> Glass Echo Publishing.</p>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
