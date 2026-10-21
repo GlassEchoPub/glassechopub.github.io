@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#151019">
   <meta name="description"
-        content="Glass Echo Publishing. Discover BLACKWOOD by B. Tomago and stories that linger beyond the final page.">
+        content="Discover BLACKWOOD by gothic fiction author B. Tomago. Explore Glass Echo Publishing, meet the author, and support the trilogy.">
 
-  <title>Glass Echo Publishing | Stories That Echo</title>
+  <title>Glass Echo Publishing | B. Tomago</title>
 
   <style>
     :root {
@@ -20,7 +20,9 @@
       --border: #49394b;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -35,11 +37,22 @@
       line-height: 1.7;
     }
 
-    a { color: inherit; }
+    a {
+      color: inherit;
+    }
 
     a:focus-visible {
       outline: 3px solid var(--gold);
       outline-offset: 6px;
+    }
+
+    h1, h2, p {
+      overflow-wrap: break-word;
+    }
+
+    .container {
+      width: min(1100px, 88%);
+      margin-inline: auto;
     }
 
     .skip-link {
@@ -52,16 +65,13 @@
       z-index: 10;
     }
 
-    .skip-link:focus { top: 12px; }
-
-    .container {
-      width: min(1100px, 88%);
-      margin-inline: auto;
+    .skip-link:focus {
+      top: 12px;
     }
 
     header {
-      border-bottom: 1px solid var(--border);
       padding: 24px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
@@ -82,14 +92,15 @@
     .brand-mark {
       display: grid;
       place-items: center;
+      flex-shrink: 0;
       width: 48px;
       height: 48px;
+      padding-right: 2px;
       border: 1px solid var(--gold);
       border-radius: 50%;
       color: var(--gold);
       font-size: 20px;
       letter-spacing: -2px;
-      padding-right: 2px;
     }
 
     .brand-name {
@@ -102,32 +113,39 @@
     .brand-subtitle {
       display: block;
       margin-top: 5px;
+      color: var(--gold);
       font-family: Arial, sans-serif;
       font-size: 9px;
-      text-transform: uppercase;
       letter-spacing: 5px;
-      color: var(--gold);
+      text-transform: uppercase;
     }
 
     nav {
       display: flex;
-      gap: 26px;
+      flex-wrap: wrap;
+      gap: 12px 24px;
       font-family: Arial, sans-serif;
       font-size: 13px;
     }
 
     nav a {
-      text-decoration: none;
+      padding-block: 8px;
       color: var(--muted);
+      text-decoration: none;
     }
 
-    nav a:hover { color: var(--gold); }
+    nav a:hover {
+      color: var(--gold);
+    }
 
     .hero {
       padding: 105px 0 95px;
       background:
-        radial-gradient(ellipse at 80% 20%,
-          #49304b55, transparent 60%);
+        radial-gradient(
+          ellipse at 80% 20%,
+          #49304b55,
+          transparent 60%
+        );
     }
 
     .eyebrow {
@@ -139,8 +157,6 @@
       letter-spacing: 3px;
       text-transform: uppercase;
     }
-
-    h1, h2, h3, p { overflow-wrap: break-word; }
 
     h1 {
       max-width: 850px;
@@ -157,10 +173,10 @@
     }
 
     .hero-description {
-      max-width: 540px;
+      max-width: 570px;
       margin: 28px 0 32px;
-      font-size: 19px;
       color: var(--muted);
+      font-size: 19px;
     }
 
     .button {
@@ -168,13 +184,15 @@
       align-items: center;
       justify-content: center;
       gap: 16px;
+      min-height: 48px;
       padding: 14px 24px;
+      border: 1px solid var(--gold);
       background: var(--gold);
       color: #211722;
-      border: 1px solid var(--gold);
       font-family: Arial, sans-serif;
       font-size: 13px;
       font-weight: bold;
+      text-align: center;
       text-decoration: none;
       transition: background .2s, color .2s;
     }
@@ -193,8 +211,13 @@
     .book-grid {
       display: grid;
       grid-template-columns: 0.85fr 1.15fr;
-      gap: 80px;
       align-items: center;
+      gap: 80px;
+    }
+
+    .book-grid > *,
+    .text-grid > * {
+      min-width: 0;
     }
 
     .book-art {
@@ -203,17 +226,21 @@
       aspect-ratio: 2 / 3;
       margin: 0 auto;
       padding: 24px;
-      background:
-        radial-gradient(ellipse at 50% 35%,
-          #604263 0%, #302333 40%, #171219 80%);
       border: 1px solid #78617a;
+      background:
+        radial-gradient(
+          ellipse at 50% 35%,
+          #604263 0%,
+          #302333 40%,
+          #171219 80%
+        );
       box-shadow: 15px 22px 45px #0006;
     }
 
     .book-art-inner {
       height: 100%;
-      border: 1px solid #c4a77788;
       padding: 28px 12px;
+      border: 1px solid #c4a77788;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -228,37 +255,37 @@
     }
 
     .book-title {
-      font-size: clamp(25px, 4vw, 35px);
-      letter-spacing: 3px;
+      font-size: clamp(23px, 4vw, 35px);
+      letter-spacing: 2px;
     }
 
     .book-author {
       color: var(--gold);
       font-size: 12px;
-      letter-spacing: 4px;
+      letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .book-copy h2 {
       margin: 0 0 12px;
-      font-size: clamp(36px, 5vw, 58px);
+      font-size: clamp(34px, 5vw, 58px);
       font-weight: normal;
       letter-spacing: 2px;
       line-height: 1.15;
     }
 
     .byline {
-      color: var(--gold);
       margin: 0 0 24px;
-      font-style: italic;
+      color: var(--gold);
       font-size: 19px;
+      font-style: italic;
     }
 
     .book-description {
       max-width: 480px;
-      font-size: 18px;
-      color: var(--muted);
       margin-bottom: 24px;
+      color: var(--muted);
+      font-size: 18px;
     }
 
     .formats {
@@ -274,43 +301,113 @@
       padding: 5px 12px;
       border: 1px solid var(--border);
       border-radius: 30px;
+      color: var(--muted);
       font-family: Arial, sans-serif;
       font-size: 11px;
-      color: var(--muted);
     }
 
-    .about {
-      padding: 90px 0;
+    .text-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 70px;
+      padding: 80px 0;
     }
 
-    .about h2 {
+    .text-grid h2 {
       margin: 0;
       font-size: clamp(32px, 4vw, 44px);
       font-weight: normal;
       line-height: 1.2;
     }
 
-    .about p:not(.eyebrow) {
-      margin: 0 0 20px;
+    .section-copy p {
+      margin: 0 0 22px;
       color: var(--muted);
       font-size: 18px;
     }
 
+    .section-copy p:last-child {
+      margin-bottom: 0;
+    }
+
+    .author-section {
+      border-top: 1px solid var(--border);
+      background:
+        radial-gradient(
+          ellipse at 10% 50%,
+          #49304b33,
+          transparent 65%
+        );
+    }
+
+    .author-note {
+      margin-top: 20px;
+      color: var(--gold);
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .support {
+      padding: 75px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .support-card {
+      max-width: 820px;
+      margin: auto;
+      padding: clamp(24px, 5vw, 52px);
+      border: 1px solid var(--border);
+      background: var(--panel);
+      text-align: center;
+    }
+
+    .support-card h2 {
+      margin: 0 0 24px;
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: normal;
+      line-height: 1.2;
+    }
+
+    .support-intro {
+      color: var(--gold);
+      font-size: 21px;
+      font-style: italic;
+    }
+
+    .support-copy {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .support-card .button {
+      margin: 18px 0;
+    }
+
+    .support-small {
+      max-width: 580px;
+      margin: 18px auto;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .signature {
+      margin: 24px 0 0;
+      color: var(--gold);
+      font-style: italic;
+    }
+
     .closing {
       padding: 50px 24px;
-      text-align: center;
       border-top: 1px solid var(--border);
       background: var(--panel);
+      text-align: center;
     }
 
     .closing p {
       margin: 0;
       color: var(--gold);
-      font-style: italic;
       font-size: clamp(22px, 4vw, 32px);
+      font-style: italic;
     }
 
     footer {
@@ -327,26 +424,51 @@
       flex-wrap: wrap;
     }
 
-    footer p { margin: 0; }
+    footer p {
+      margin: 0;
+    }
 
     @media (max-width: 700px) {
-      .hero { padding: 70px 0; }
-
-      .book-grid, .about {
-        grid-template-columns: 1fr;
-        gap: 42px;
+      .hero {
+        padding: 70px 0;
       }
 
-      .featured { padding: 55px 0; }
-      .about { padding: 60px 0; }
-      .book-art { max-width: 280px; }
-      nav { gap: 22px; }
-      h1 { letter-spacing: -1px; }
+      h1 {
+        letter-spacing: -1px;
+      }
+
+      .book-grid,
+      .text-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+      }
+
+      .featured {
+        padding: 55px 0;
+      }
+
+      .text-grid,
+      .support {
+        padding: 60px 0;
+      }
+
+      .book-art {
+        max-width: 280px;
+      }
+
+      nav {
+        gap: 10px 20px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      .button { transition: none; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button {
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -356,8 +478,10 @@
 
   <header>
     <div class="container header-inner">
-      <a class="brand" href="#top" aria-label="Glass Echo Publishing home">
+      <a class="brand" href="#top"
+         aria-label="Glass Echo Publishing home">
         <span class="brand-mark" aria-hidden="true">GE</span>
+
         <span>
           <span class="brand-name">GLASS ECHO</span>
           <span class="brand-subtitle">Publishing</span>
@@ -366,12 +490,15 @@
 
       <nav aria-label="Main navigation">
         <a href="#books">Our books</a>
+        <a href="#author">Meet the author</a>
         <a href="#about">Our story</a>
+        <a href="#support">Support</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
+
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
         <p class="eyebrow">Glass Echo Publishing</p>
@@ -382,31 +509,42 @@
         </h1>
 
         <p class="hero-description">
-          For the stories that follow you beyond the final page.
-          Step into the world of Glass Echo Publishing.
+          Haunted places. Buried secrets. Supernatural love.
+          Discover stories that follow you beyond the final page.
         </p>
 
         <a class="button" href="#books">
-          Discover BLACKWOOD <span aria-hidden="true">↗</span>
+          Discover BLACKWOOD
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
 
-    <section class="featured" id="books" aria-labelledby="book-heading">
+    <section class="featured" id="books"
+             aria-labelledby="book-heading">
       <div class="container book-grid">
 
-        <!-- Decorative title panel.
-             To use your actual cover, replace this entire
-             book-art div with:
-             <img src="blackwood-cover.jpg"
-                  alt="BLACKWOOD by B. Tomago book cover"
-                  style="width:100%;max-width:340px;height:auto;
-                         display:block;margin:auto;">
-             Upload blackwood-cover.jpg beside index.html.
+        <!--
+          Decorative book panel.
+
+          To display your actual cover, upload an image named
+          blackwood-cover.jpg beside index.html and replace
+          the book-art div below with:
+
+          <img
+            src="blackwood-cover.jpg"
+            alt="BLACKWOOD by B. Tomago book cover"
+            style="width:100%;max-width:340px;height:auto;
+                   display:block;margin:auto;"
+          >
         -->
+
         <div class="book-art" aria-hidden="true">
           <div class="book-art-inner">
-            <span class="book-author">Glass Echo Publishing</span>
+            <span class="book-author">
+              Glass Echo Publishing
+            </span>
+
             <span class="book-symbol">☾</span>
             <span class="book-title">BLACKWOOD</span>
             <span class="book-author">B. Tomago</span>
@@ -418,11 +556,13 @@
           <h2 id="book-heading">BLACKWOOD</h2>
           <p class="byline">By B. Tomago</p>
 
-          <!-- Replace this short introduction with your
-               official back-cover description whenever ready. -->
           <p class="book-description">
-            Enter the world of BLACKWOOD.
-            Discover B. Tomago’s novel and find your next read.
+            Enter a world of restless spirits, dangerous intimacy,
+            and mysteries waiting beneath the floorboards.
+          </p>
+
+          <p class="book-description">
+            Discover BLACKWOOD and begin the journey.
           </p>
 
           <ul class="formats" aria-label="Book formats">
@@ -431,34 +571,77 @@
             <li>Hardcover</li>
           </ul>
 
-          <!-- Replace this Amazon search URL with your
-               book's direct Amazon product link. Then change
-               "Find on Amazon" to "Buy on Amazon". -->
           <a class="button"
-             href="https://www.amazon.com/s?k=Blackwood+B+Tomago"
+             href="https://a.co/d/04qXVV5u"
              target="_blank"
              rel="noopener noreferrer">
-            Find on Amazon <span aria-hidden="true">↗</span>
+            Buy on Amazon
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
     </section>
 
-    <section class="container about" id="about"
+    <section id="author" class="author-section"
+             aria-labelledby="author-heading">
+      <div class="container text-grid">
+        <div>
+          <p class="eyebrow">Meet the author</p>
+          <h2 id="author-heading">B. Tomago</h2>
+
+          <p class="author-note">
+            Gothic fiction. Supernatural love.<br>
+            A soft spot for misunderstood creatures.
+          </p>
+        </div>
+
+        <div class="section-copy">
+          <p>
+            B. Tomago writes gothic fiction where haunted places,
+            buried secrets, and supernatural love intertwine.
+            Drawn to complicated characters and the uneasy space
+            between fear and fascination, she explores grief,
+            longing, and the connections that make us brave—or
+            lead us somewhere we should never have gone.
+          </p>
+
+          <p>
+            Her novel, Blackwood, invites readers into a world
+            of restless spirits, dangerous intimacy, and
+            mysteries waiting beneath the floorboards.
+          </p>
+
+          <p>
+            When she isn’t writing, she can often be found
+            sketching moonlit doorways, getting lost in music,
+            or spending time with her family and an eclectic
+            collection of much-loved animals. She has a soft
+            spot for misunderstood creatures, in fiction
+            and in life.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container text-grid" id="about"
              aria-labelledby="about-heading">
       <div>
         <p class="eyebrow">Our story</p>
+
         <h2 id="about-heading">
-          A home for words<br>that stay with you.
+          A home for words<br>
+          that stay with you.
         </h2>
       </div>
 
-      <div>
+      <div class="section-copy">
         <p>
-          Glass Echo Publishing celebrates the pull of a good story:
-          the curiosity that keeps you turning pages, the characters
-          you carry with you, and the feeling that lingers afterward.
+          Glass Echo Publishing celebrates the pull of a good
+          story: the curiosity that keeps you turning pages,
+          the characters you carry with you, and the feeling
+          that lingers afterward.
         </p>
+
         <p>
           Begin with BLACKWOOD by B. Tomago.
           Return for the stories still to come.
@@ -466,14 +649,74 @@
       </div>
     </section>
 
+    <section id="support" class="support"
+             aria-labelledby="support-heading">
+      <div class="container">
+        <div class="support-card">
+          <p class="eyebrow">Become part of the story</p>
+
+          <h2 id="support-heading">
+            Help Bring the Trilogy to Life
+          </h2>
+
+          <p class="support-intro">
+            BLACKWOOD is only the beginning.
+          </p>
+
+          <p class="support-copy">
+            There is more of this story waiting to be told.
+            As I write the remaining books in the trilogy,
+            your support and encouragement mean so much.
+          </p>
+
+          <p class="support-copy">
+            Buying a copy of BLACKWOOD helps support my work
+            as an independent author and the stories still
+            to come.
+          </p>
+
+          <a class="button"
+             href="https://a.co/d/04qXVV5u"
+             target="_blank"
+             rel="noopener noreferrer">
+            Support by Buying BLACKWOOD
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <!--
+            A direct contribution button can be added here
+            once your fundraiser or payment link is ready.
+          -->
+
+          <p class="support-small">
+            Already have your copy? Sharing BLACKWOOD with
+            a friend or leaving an honest review is another
+            wonderful way to help. Thank you for making
+            room for my stories in your life.
+          </p>
+
+          <p class="signature">
+            With gratitude,<br>
+            B. Tomago
+          </p>
+        </div>
+      </div>
+    </section>
+
     <div class="closing">
-      <p>The final page is only the beginning of the echo.</p>
+      <p>
+        The final page is only the beginning of the echo.
+      </p>
     </div>
+
   </main>
 
   <footer>
     <div class="container footer-inner">
-      <p>© <span id="year">2026</span> Glass Echo Publishing.</p>
+      <p>
+        © <span id="year">2026</span> Glass Echo Publishing.
+      </p>
+
       <a href="#top">Back to top ↑</a>
     </div>
   </footer>
