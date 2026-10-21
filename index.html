@@ -220,50 +220,19 @@
       min-width: 0;
     }
 
-    .book-art {
+    .cover-link {
+      display: block;
       width: 100%;
       max-width: 340px;
-      aspect-ratio: 2 / 3;
       margin: 0 auto;
-      padding: 24px;
-      border: 1px solid #78617a;
-      background:
-        radial-gradient(
-          ellipse at 50% 35%,
-          #604263 0%,
-          #302333 40%,
-          #171219 80%
-        );
+    }
+
+    .book-cover {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid var(--border);
       box-shadow: 15px 22px 45px #0006;
-    }
-
-    .book-art-inner {
-      height: 100%;
-      padding: 28px 12px;
-      border: 1px solid #c4a77788;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-    }
-
-    .book-symbol {
-      color: var(--gold);
-      font-size: 54px;
-      line-height: 1;
-    }
-
-    .book-title {
-      font-size: clamp(23px, 4vw, 35px);
-      letter-spacing: 2px;
-    }
-
-    .book-author {
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
     }
 
     .book-copy h2 {
@@ -452,7 +421,7 @@
         padding: 60px 0;
       }
 
-      .book-art {
+      .cover-link {
         max-width: 280px;
       }
 
@@ -524,32 +493,17 @@
              aria-labelledby="book-heading">
       <div class="container book-grid">
 
-        <!--
-          Decorative book panel.
-
-          To display your actual cover, upload an image named
-          blackwood-cover.jpg beside index.html and replace
-          the book-art div below with:
-
+        <a class="cover-link"
+           href="https://a.co/d/04qXVV5u"
+           target="_blank"
+           rel="noopener noreferrer">
           <img
-            src="blackwood-cover.jpg"
-            alt="BLACKWOOD by B. Tomago book cover"
-            style="width:100%;max-width:340px;height:auto;
-                   display:block;margin:auto;"
+            class="book-cover"
+            src="./Screenshot_20261019_085307_Kindle.jpg"
+            alt="BLACKWOOD by B. Tomago — view the book on Amazon"
+            decoding="async"
           >
-        -->
-
-        <div class="book-art" aria-hidden="true">
-          <div class="book-art-inner">
-            <span class="book-author">
-              Glass Echo Publishing
-            </span>
-
-            <span class="book-symbol">☾</span>
-            <span class="book-title">BLACKWOOD</span>
-            <span class="book-author">B. Tomago</span>
-          </div>
-        </div>
+        </a>
 
         <div class="book-copy">
           <p class="eyebrow">The featured book</p>
@@ -683,11 +637,6 @@
             <span aria-hidden="true">↗</span>
           </a>
 
-          <!--
-            A direct contribution button can be added here
-            once your fundraiser or payment link is ready.
-          -->
-
           <p class="support-small">
             Already have your copy? Sharing BLACKWOOD with
             a friend or leaving an honest review is another
@@ -726,4 +675,4 @@
       new Date().getFullYear();
   </script>
 </body>
-</html>
+      </html>
